@@ -9,10 +9,15 @@ class Post(models.Model):
     published_date = models.DateTimeField(
             blank=True, null=True)
 
+
+
     def publish(self, author):
         self.published_date = timezone.now()
         self.author = author
         self.save()
 
+
+
     def __str__(self):
         return self.title
+
