@@ -32,3 +32,7 @@ class Remote_post(models.Model):
     text = models.TextField()
     time = models.DateTimeField(blank=True,auto_now=False)
 
+
+class cryptoBTC_price(models.Model):
+    price = models.TextField()
+

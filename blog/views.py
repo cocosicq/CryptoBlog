@@ -14,6 +14,7 @@ import ssl
 import requests
 from .forms import PostForm
 from .forms import RemotePostForm
+import json
 
 
 
@@ -136,6 +137,14 @@ def post_new_bd(request):
         form = PostForm()
     return render(request, 'blog/post_add.html', {'form': form})
 
+
+
+def get_price_btc(request):
+    getPriceUrl = 'https://api-pub.bitfinex.com/v2/tickers?symbols=tBTCUSD'
+    getPrice = requests.get(getPriceUrl)
+    json_string = json.loads(getPrice.text)
+    print(json_string)
+    return render(request, 'blog/home.html',{'json_string': json_string})
 
 
 
