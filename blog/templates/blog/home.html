@@ -1,0 +1,6 @@
+<div>Facebook User: {{ user }} , Page ID: {{ page_id }}</div>
+<div>Page Access_Token {{ access_token }} </div>
+
+{% csrf_token %}
+<center><a href="/post/new/"> Add new Post to Facebook page </a></center>
+<center><a href="/post/remote/new/"> Add new Remote Post to Facebook page </a></center>

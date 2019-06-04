@@ -1,0 +1,44 @@
+{% load static %}
+
+{{ Remote_post }}
+
+
+{% load bootstrap4 %}       {# import bootstrap4/bootstrap3 #}
+{% bootstrap_css %}         {# Embed Bootstrap CSS #}
+{% bootstrap_javascript jquery='full' %}  {# Embed Bootstrap JS+jQuery #}
+{{ form.media }}            {# Adds date-picker required JS and CSS #}
+
+
+<html>
+    <head>
+        <title>Add new Post</title>
+        <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.44/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+        <script src="//cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+        <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="//cdn.bootcss.com/moment.js/2.17.1/moment.min.js"></script>
+        <script src="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.44/js/bootstrap-datetimepicker.min.js"></script>
+    </head>
+
+    <body>
+    <div>
+        <center><h1><a>Add new Post</a></h1></center>
+
+
+
+    </div>
+            {% block content %}
+
+
+
+
+                <center><form method="POST" class="post-form">{% csrf_token %}
+                    {{ form.as_p }}
+
+                    <button type="submit" class="save btn btn-default">Save</button>
+                </form></center>
+            {% endblock %}
+    </body>
+</html>
+
+    <script>

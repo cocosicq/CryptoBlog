@@ -21,8 +21,12 @@ from blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-#   url(r'', include('blog.urls')),
-
-    path('accounts/',include('allauth.urls')),
+  #  url(r'', include('blog.urls')),
+    path('accounts/', include('allauth.urls')),
+    url(r'^post/remote/new/$', views.remote_post_new, name='remote_post_new'),
+    url(r'^post/new/$', views.post_new, name='post_new'),
     path('', TemplateView.as_view(template_name='blog/loginFacebook.html')),
+    path('home/', TemplateView.as_view(template_name='blog/home.html')),
+
+
 ]

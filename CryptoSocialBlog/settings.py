@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'blog',
     'open_facebook',
-
-
+    'django_extensions',
+    'bootstrap_datepicker_plus',
+    'bootstrap4',
 
     'allauth',
     'allauth.account',
