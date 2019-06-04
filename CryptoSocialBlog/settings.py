@@ -37,7 +37,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'blog',
+
+
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.twitter',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_facebook.context_processors.facebook',
             ],
         },
     },
@@ -85,6 +95,7 @@ DATABASES = {
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -120,3 +131,39 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+
+SITE_ID = 1
+LOGIN_REDIRECT_URL ='/'
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'SCOPE': [
+            'email',
+            'pages_messaging',
+            'pages_manage_instant_articles',
+            'pages_manage_cta',
+            'manage_pages',
+            'ads_management',
+            'pages_show_list',
+            'publish_pages',
+            'user_events',
+            'user_posts',
+            'user_link',
+            'ads_read',
+            'business_management',
+            'groups_access_member_info',
+
+            ],
+        #'AUTH_PARAMS': { 'auth_type': 'reauthenticate' },
+        'AUTH_PARAMS': { },
+        'METHOD': 'oauth2'
+        },
+}

@@ -1,0 +1,23 @@
+{% load  socialaccount %}
+{% providers_media_js %}
+
+<head>
+
+<head>
+    <title>Facebook Login</title>
+</head>
+
+<body>
+
+{% csrf_token %}
+
+<div>Your Login: {{ user }}</div>
+<div><a href="/home">Go to add post</a></div>
+
+Login with
+<a href="{% provider_login_url "facebook"  method="js_sdk" %}"> Facebook Connect </a>
+</body>
+
+
+
+</head>
